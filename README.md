@@ -2,7 +2,7 @@
 
 A custom JS input field validator, which allows the user to create his own validators.
 
-## how to use
+## How to use
 
 * Add validators.js and field.js to your project
 * Start adding your validators to the validators object (in validators.js file).
@@ -39,6 +39,7 @@ var validators = {
 2) Every input field must have the name of the custom validator you wish to use in 
 a data-validator attribute (ex: data-validator="notEmpty").
 3) Add a span with the class "info", this will be used to show validating messages.
+4) The submit button must have a "submit" class
 * And here's an example of an HTML form
 
 ```
@@ -63,5 +64,12 @@ a data-validator attribute (ex: data-validator="notEmpty").
 </form>
 ```
 
+* To initialize this library:
+```
+$(document).ready(function() {
+	Field.init();
+});
+```
+
 * Please note that this version is using jQuery, so you need to add jQuery first
-(in the future I might use pure js DOM selectors instead of jQuery).
+(in the future I might get rid of jQuery and use pure js DOM selectors instead).
