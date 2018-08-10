@@ -21,6 +21,7 @@
         this.inputValue = this.input.val();
         var check = validators[this.validator]['check'].call(validators, this.inputValue);
         if(check) {
+            errCount++;
             this.setError();
             this.element.removeClass('valid-field');
             this.element.addClass('invalid-field');
@@ -43,13 +44,18 @@
     
         $('.submit').on('click', function(event) {
             event.preventDefault();
-                fields.forEach(function(i) {
-                    i.validate();
-                });
+            errCount = 0;
+            fields.forEach(function(i) {
+                i.validate();
+            });
+            if (errCount === 0) {
+                $(this).closest('form').submit();
+            }
         });
     
     }
-    
+
+    var errCount = 0;
     var fields = [];
     
     global.Field = Field;

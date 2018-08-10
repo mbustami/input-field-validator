@@ -64,6 +64,8 @@ a data-validator attribute (ex: data-validator="notEmpty").
 </form>
 ```
 
+* When submitting the form, a "valid-field" or "invalid-field" class will be added to that input's containing div, so the user can add CSS styling accordingly.
+
 * To initialize this library:
 ```
 $(document).ready(function() {
